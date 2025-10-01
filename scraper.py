@@ -19,13 +19,18 @@ try:
         print(top_story_headline_text)
     else:
         print("\nCould not find the headline. The website structure might have changed.")
-    description = soup.find("div", class_="story-body")
+    #this has to be moved inside "top_story_headline" if statement
+    description = soup.find("div", id="story-body")
 
     print(description)
     if description:
         description_text = description.text.strip()
         print(f"Found description: {description_text}")
         text_to_summarize = f"{top_story_headline_text}. {description_text}"
+    #from this to the last comment
 
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
+
+
+#this comment is to see if my contributions go up
